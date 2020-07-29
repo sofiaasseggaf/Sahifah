@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ziarah.ZiarahMarufah">
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_alignParentTop="true"
+        android:background="#ffffff">
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back_black">
+        </ImageButton>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/icon_menu_black">
+        </ImageButton>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#000000"
+        android:layout_below="@id/top">
+        <RelativeLayout
+            android:id="@+id/img_oase"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ziarah Ma'rufah"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="26sp">
+            </TextView>
+        </RelativeLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+                <Button
+                    android:id="@+id/btn_ziarah_baqi"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Aimmah Baqi a.s."
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_arbain"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Arbain"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_aliyasin"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Ali Yasin"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_aminallah"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Aminallah"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_jamiah"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Jamiah"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_jamiah_aimmah"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Jamiah Aimmah Al-Mu'minin"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_jamiah_saghirah"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Jamiah Saghirah"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_jamiah_kabirah"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Jamiah Kabirah"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_rajabiah"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Rajabiah"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_asyura"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Asyura"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_asyura_ghair"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Asyura Ghair Ma'rufah"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_niabati"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Niabati"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_warist"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Warist"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+                <Button
+                    android:id="@+id/btn_ziarah_wada"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Ziarah Wada' Aimmah"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp">
+                </Button>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

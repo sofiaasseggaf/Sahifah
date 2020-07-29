@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KalenderActivity">
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark">
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back_white"
+            android:layout_centerVertical="true">
+        </ImageButton>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/icon_menu_white"
+            android:layout_centerVertical="true">
+        </ImageButton>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:layout_below="@id/top">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rl2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:paddingLeft="30dp"
+                android:paddingTop="10dp"
+                android:paddingRight="30dp"
+                android:paddingBottom="10dp"
+                android:background="#000000">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:text="Kalender"
+                    android:textSize="14pt"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/montserrat_bold">
+                </TextView>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/btn_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:thumb="@drawable/sw_thumb"
+                    app:track="@drawable/sw_track">
+                </androidx.appcompat.widget.SwitchCompat>
+
+                <TextView
+                    android:id="@+id/txtmasehi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/btn_switch"
+                    android:layout_alignStart="@+id/btn_switch"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Masehi"
+                    android:textColor="#ffffff"
+                    android:textSize="10pt"></TextView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:id="@+id/bulanmasehi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="April 2020"
+                        android:layout_gravity="right"
+                        android:textSize="10pt"
+                        android:textColor="#ffffff"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/montserrat_regular">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/bulanhijriyah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/bulanmasehi"
+                        android:text="Syakban - Ramadhan 1441"
+                        android:textColor="#ffffff"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_gravity="right"
+                        android:textSize="8pt"></TextView>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/kalendermasehi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_below="@id/rl2"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rect_bg_kalender"
+                android:visibility="gone">
+                <CalendarView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </CalendarView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/kalenderhijri"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/rl2"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rect_bg_kalender"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

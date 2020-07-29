@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project.sahifah">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Include following permission if you want to cache images on SD card -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@drawable/logo_color"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="false" />
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true"/>
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/app_id" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".amalan.bulanrajab.AmalanBulanRajab" />
+        <activity android:name=".amalan.bulanramadhan.doaharian.AmalanBulanRamadhanDoaHarian" />
+        <activity android:name=".amalan.bulanramadhan.AmalanBulanRamadhan" />
+        <activity android:name=".amalan.bulanramadhan.khusus.AmalanBulanRamadhanKhusus" />
+        <activity android:name=".amalan.bulanramadhan.umum.AmalanBulanRamadhanUmum" />
+        <activity android:name=".amalan.bulanramadhan.lailatulqadrkhusus.AmalanBulanRamadhanLailatulQadr" />
+        <activity android:name=".amalan.AmalanActivity" />
+        <activity android:name=".amalan.AmalanContentActivity" />
+        <activity android:name=".doa.DoaActivity" />
+        <activity android:name=".doa.DoaContentActivity" />
+        <activity android:name=".doa.DoaHarian" />
+        <activity android:name=".doa.DoaSetelahShalat" />
+        <activity android:name=".doa.DoaSetelahShalatContentActivity" />
+        <activity android:name=".fiqih.FiqihActivity" />
+        <activity android:name=".fiqih.FiqihContentActivity" />
+        <activity android:name=".munajat.MunajatActivity" />
+        <activity android:name=".munajat.MunajatContentActivity" />
+        <activity android:name=".surah.SurahActivity" />
+        <activity android:name=".surah.SurahContentActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ziarah.ZiarahActivity" />
+        <activity android:name=".ziarah.ZiarahMarufah" />
+        <activity android:name=".ziarah.ZiarahContentActivity" />
+        <activity android:name=".HikmahActivity" />
+        <activity android:name=".KalenderActivity" />
+        <activity android:name=".WaktuSalatActivity" />
+        <activity android:name=".oase.OaseActivity" />
+        <activity android:name=".oase.OaseContentActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity"/>
+
+        <activity
+            android:name=".Share"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+
+
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".broadcastReceiver.NetworkStateChangeReceiver" />
+        <receiver android:name=".broadcastReceiver.ConnectivityReceiver" />
+        <receiver android:name=".broadcastReceiver.SubuhBroadcastReceiver" />
+        <receiver android:name=".broadcastReceiver.ZuhurBroadcastReceiver" />
+        <receiver android:name=".broadcastReceiver.AsharBroadcastReceiver" />
+        <receiver android:name=".broadcastReceiver.MaghribBroadcastReceiver" />
+        <receiver android:name=".broadcastReceiver.IsyaBroadcastReceiver" />
+    </application>
+
+</manifest>

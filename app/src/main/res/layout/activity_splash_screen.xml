@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_login"
+    tools:context=".SplashScreen"
+    android:id="@+id/reltv">
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_white"
+        android:layout_gravity="center"
+        android:layout_marginTop="260dp">
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sahifah"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="#ffffff"
+        android:textSize="18pt"
+        android:gravity="center"
+        android:layout_marginTop="50dp">
+    </TextView>
+
+    </LinearLayout>
+
+   <!-- <Button
+        android:id="@+id/btn_masuk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="#2F000000"
+        android:text="MASUK"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"></Button>-->
+
+    <!--
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:id="@+id/loginwithgoogle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/sahifah_login_google">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masuk dengan Google"
+                android:layout_gravity="center"
+                android:layout_marginLeft="65dp"
+                android:textSize="6pt">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loginwithfacebook"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/sahifah_login_facebook">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masuk dengan Google"
+                android:textColor="#ffffff"
+                android:layout_gravity="center"
+                android:layout_marginLeft="65dp"
+                android:textSize="6pt">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loginwithnumber"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/sahifah_login_phonenumber">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masuk dengan Google"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="65dp"
+                android:textSize="6pt">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+    -->
+
+</RelativeLayout>

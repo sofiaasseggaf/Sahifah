@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".amalan.bulanramadhan.AmalanBulanRamadhan">
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_alignParentTop="true"
+        android:background="#ffffff">
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back_black">
+        </ImageButton>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/icon_menu_black">
+        </ImageButton>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#000000"
+        android:layout_below="@id/top">
+        <RelativeLayout
+            android:id="@+id/img_oase"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amalan Bulan Ramadhan"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#ffffff"
+                android:textSize="26sp">
+            </TextView>
+        </RelativeLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#0F000000"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_amalan_ramadhan_umum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="15dp"
+                    android:gravity="center_vertical"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/icon_folder"
+                        android:layout_marginRight="25dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amalan Umum Ramadhan"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="8pt"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_amalan_ramadhan_khusus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="15dp"
+                    android:gravity="center_vertical"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/icon_folder"
+                        android:layout_marginRight="25dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amalan Khusus Ramadhan"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="8pt"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_amalan_ramadhan_lailatulqadr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="15dp"
+                    android:gravity="center_vertical"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/icon_folder"
+                        android:layout_marginRight="25dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amalan Lailatul Qadr"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="8pt"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_amalan_ramadhan_harian"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="15dp"
+                    android:gravity="center_vertical"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/icon_folder"
+                        android:layout_marginRight="25dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Doa Harian Ramadhan"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="8pt"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>
