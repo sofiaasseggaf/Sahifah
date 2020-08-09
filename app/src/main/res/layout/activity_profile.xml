@@ -33,12 +33,16 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/arrow_back_white">
                 </ImageButton>
+
+                <!--
                 <ImageButton
+                    android:id="@+id/setting_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:background="@drawable/icon_menu_white">
-                </ImageButton>
+                    android:background="@drawable/icon_menu_white"></ImageButton>
+                -->
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,10 +50,10 @@
                     android:layout_marginTop="40dp"
                     android:layout_centerHorizontal="true">
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/imgSiswa"
+                        android:id="@+id/img"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/background_dark"
+                        android:src="@drawable/profilepicture"
                         app:civ_border_width="2dp"
                         android:layout_gravity="center"/>
                     <TextView
@@ -65,18 +69,22 @@
                         android:textColor="#ffffff"
                         android:layout_marginTop="12dp">
                     </TextView>
+
+                    <!--
                     <Button
-                        android:id="@+id/btn_logout"
-                        android:layout_width="130dp"
-                        android:layout_height="27dp"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
                         android:layout_marginTop="10dp"
+                        android:paddingBottom="3dp"
                         android:background="@drawable/rect_white"
-                        android:text="LOG OUT"
+                        android:text="ganti foto profil anda"
                         android:textSize="10sp"
                         android:fontFamily="@font/raleway_bold"
                         android:textAlignment="center"
                         android:layout_gravity="center">
                     </Button>
+
+                    -->
                 </LinearLayout>
             </RelativeLayout>
 
@@ -85,6 +93,48 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_below="@id/top">
+
+                <LinearLayout
+                    android:id="@+id/btn_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:paddingRight="30dp"
+                    android:paddingLeft="30dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_info_blue">
+                    </ImageView>
+                    <LinearLayout
+                        android:id="@+id/btn_logout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LOG OUT"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
+                        </TextView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Keluar dari akun anda"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textSize="14sp">
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -155,14 +205,17 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Atur lokasi, waktu shalat, serta suara azan"
+                            android:text="Atur suara alarm sholat anda"
                             android:fontFamily="@font/montserrat_regular"
                             android:textSize="14sp">
                         </TextView>
                     </LinearLayout>
                 </LinearLayout>
 
+                -->
+
                 <LinearLayout
+                    android:id="@+id/btn_faq"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
@@ -178,6 +231,7 @@
                         android:src="@drawable/icon_forum">
                     </ImageView>
                     <LinearLayout
+                        android:id="@+id/btn_faq2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -201,6 +255,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_beri_penilaian"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
@@ -216,6 +271,7 @@
                         android:src="@drawable/icon_rate_review">
                     </ImageView>
                     <LinearLayout
+                        android:id="@+id/btn_beri_penilaian2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -239,6 +295,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_bagikan_app"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
@@ -254,6 +311,7 @@
                         android:src="@drawable/icon_share_blue">
                     </ImageView>
                     <LinearLayout
+                        android:id="@+id/btn_bagikan_app2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -277,6 +335,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_kontak_kami"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
@@ -292,6 +351,7 @@
                         android:src="@drawable/icon_help">
                     </ImageView>
                     <LinearLayout
+                        android:id="@+id/btn_kontak_kami2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -338,82 +398,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Versi Sahifah"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:textSize="14sp"
-                            android:textStyle="bold">
-                        </TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Versi 1.0"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:textSize="14sp">
-                        </TextView>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff"
-                    android:paddingRight="30dp"
-                    android:paddingLeft="30dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/icon_info_blue">
-                    </ImageView>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="20dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Syarat dan Ketentuan"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:textSize="14sp"
-                            android:textStyle="bold">
-                        </TextView>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Versi 1.0"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:textSize="14sp">
-                        </TextView>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff"
-                    android:paddingRight="30dp"
-                    android:paddingLeft="30dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/icon_info_blue">
-                    </ImageView>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="20dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Kebijakan Privasi"
                             android:fontFamily="@font/montserrat_regular"
                             android:textSize="14sp"
                             android:textStyle="bold">

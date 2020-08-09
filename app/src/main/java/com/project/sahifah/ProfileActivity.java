@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,8 +23,10 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton btn_home, btn_hikmah, btn_search, btn_oase, btn_profile;
     TextView btn_home2, btn_hikmah2, btn_search2, btn_oase2, btn_profile2;
     LinearLayout btn_home3, btn_hikmah3, btn_search3, btn_oase3, btn_profile3;
-    Button btn_logout;
     TextView txt_nama;
+
+    LinearLayout btn_kontak_kami, btn_kontak_kami2, btn_bagikan_app, btn_bagikan_app2, btn_beri_penilaian, btn_beri_penilaian2;
+    LinearLayout btn_logout, btn_logout2, btn_faq, btn_faq2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,24 +49,20 @@ public class ProfileActivity extends AppCompatActivity {
         btn_search3 = findViewById(R.id.btn_search3);
         btn_oase3 = findViewById(R.id.btn_oase3);
         btn_profile3 = findViewById(R.id.btn_profile3);
-        btn_logout = findViewById(R.id.btn_logout);
         txt_nama = findViewById(R.id.txt_nama);
-
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        btn_logout = findViewById(R.id.btn_logout);
+        btn_logout2 = findViewById(R.id.btn_logout2);
+        btn_faq = findViewById(R.id.btn_faq);
+        btn_faq2 = findViewById(R.id.btn_faq2);
+        btn_beri_penilaian = findViewById(R.id.btn_beri_penilaian);
+        btn_beri_penilaian2 = findViewById(R.id.btn_beri_penilaian2);
+        btn_bagikan_app = findViewById(R.id.btn_bagikan_app);
+        btn_bagikan_app2 = findViewById(R.id.btn_bagikan_app2);
+        btn_kontak_kami = findViewById(R.id.btn_kontak_kami);
+        btn_kontak_kami2 = findViewById(R.id.btn_kontak_kami2);
 
         txt_nama.setText(PreferenceUtils.getName(this));
 
-        btn_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopup();
-            }
-        });
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +72,6 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         btn_hikmah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,9 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         // BTN SEARCH
-
         btn_oase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,9 +89,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         // BTN PROFILE
-
         btn_home2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +98,6 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         btn_hikmah2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,9 +106,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         // BTN SEARCH
-
         btn_oase2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,9 +115,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         // BTN PROFILE
-
         btn_home3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,7 +124,6 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         btn_hikmah3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,9 +132,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         // BTN SEARCH
-
         btn_oase3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,9 +141,115 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         // BTN PROFILE
 
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup();
+            }
+        });
+        btn_logout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopup();
+            }
+        });
+        btn_kontak_kami.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogKontak();
+            }
+        });
+        btn_kontak_kami2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogKontak();
+            }
+        });
+        btn_beri_penilaian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent();
+                a.setAction(Intent.ACTION_VIEW);
+                a.addCategory(Intent.CATEGORY_BROWSABLE);
+                a.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.project.sahifah"));
+                startActivity(a);
+            }
+        });
+        btn_beri_penilaian2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent();
+                a.setAction(Intent.ACTION_VIEW);
+                a.addCategory(Intent.CATEGORY_BROWSABLE);
+                a.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.project.sahifah"));
+                startActivity(a);
+            }
+        });
+        btn_faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, "appsahifah@gmail.com");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "appsahifah@gmail.com");
+                emailIntent.setPackage("com.google.android.gm");
+                emailIntent.setType("text/plain");
+                startActivity(Intent.createChooser(emailIntent, "Send Mail"));
+            }
+        });
+        btn_faq2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, "appsahifah@gmail.com");
+                emailIntent.setPackage("com.google.android.gm");
+                emailIntent.setType("text/plain");
+                startActivity(Intent.createChooser(emailIntent, "Send Mail"));
+            }
+        });
+        btn_bagikan_app.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareApp = new Intent(Intent.ACTION_SEND);
+                shareApp.putExtra(Intent.EXTRA_TEXT, "DOWNLOAD APLIKASI INI https://play.google.com/store/apps/details?id=com.project.sahifah");
+                shareApp.setType("text/plain");
+                shareApp.setPackage("com.whatsapp");
+                startActivity(shareApp);
+            }
+        });
+        btn_bagikan_app2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareApp = new Intent(Intent.ACTION_SEND);
+                shareApp.putExtra(Intent.EXTRA_TEXT, "DOWNLOAD APLIKASI INI https://play.google.com/store/apps/details?id=com.project.sahifah");
+                shareApp.setType("text/plain");
+                shareApp.setPackage("com.whatsapp");
+                startActivity(shareApp);
+            }
+        });
+
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    public void dialogKontak(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+        builder.setMessage("appsahifah@gmail.com")
+                .setNeutralButton("tutup", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public void showPopup(){
@@ -175,12 +268,16 @@ public class ProfileActivity extends AppCompatActivity {
         alert1.show();
     }
 
-
-
     public void logout(){
         PreferenceUtils.saveName("", getApplicationContext());
         PreferenceUtils.saveUsername("", getApplicationContext());
         PreferenceUtils.savePassword("", getApplicationContext());
+        PreferenceUtils.saveAlarmCoba("off", getApplicationContext());
+        PreferenceUtils.saveAlarmSubuh("off", getApplicationContext());
+        PreferenceUtils.saveAlarmZuhur("off", getApplicationContext());
+        PreferenceUtils.saveAlarmAshar("off", getApplicationContext());
+        PreferenceUtils.saveAlarmMagrib("off", getApplicationContext());
+        PreferenceUtils.saveAlarmIsya("off", getApplicationContext());
         Intent a = new Intent(ProfileActivity.this, LoginActivity.class);
         startActivity(a);
         finish();

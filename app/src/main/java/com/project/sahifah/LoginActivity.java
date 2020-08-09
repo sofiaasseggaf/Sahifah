@@ -57,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 thread();
-                findViewById(R.id.framelayout).setVisibility(View.VISIBLE);
             }
         });
 
@@ -72,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void thread() {
-
+        findViewById(R.id.framelayout).setVisibility(View.VISIBLE);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -116,13 +115,10 @@ public class LoginActivity extends AppCompatActivity {
                     dataUser = dataModelUsers.get(i);
                     isValid = true;
                     if (isValid == true) {
-
+                        saveData();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                PreferenceUtils.saveUsername(dataUser.getUsername(),getApplicationContext());
-                                PreferenceUtils.savePassword(dataUser.getPassword(), getApplicationContext());
-                                PreferenceUtils.saveName(dataUser.getNama(), getApplicationContext());
                                 findViewById(R.id.framelayout).setVisibility(View.GONE);
                                 Intent a = new Intent(LoginActivity.this, HomeActivity.class);
                                 a.putExtra("dataUser", (Parcelable) dataUser);
@@ -131,17 +127,17 @@ public class LoginActivity extends AppCompatActivity {
                                 finish();
                             }
                         });
-                    }
-                } else {
-                    isValid = false;
-                    if (isValid == false) {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                findViewById(R.id.framelayout).setVisibility(View.GONE);
-                                Toast.makeText(LoginActivity.this, "akun belum terdaftar", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                    } else {
+                        isValid = false;
+                        if (isValid == false) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    findViewById(R.id.framelayout).setVisibility(View.GONE);
+                                    Toast.makeText(LoginActivity.this, "akun belum terdaftar", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                     }
                 }
             }
@@ -172,6 +168,18 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    public void saveData()
+    {
+        PreferenceUtils.saveUsername(dataUser.getUsername(),getApplicationContext());
+        PreferenceUtils.savePassword(dataUser.getPassword(), getApplicationContext());
+        PreferenceUtils.saveName(dataUser.getNama(), getApplicationContext());
+        PreferenceUtils.saveAlarmSubuh("off", getApplicationContext());
+        PreferenceUtils.saveAlarmZuhur("off", getApplicationContext());
+        PreferenceUtils.saveAlarmAshar("off", getApplicationContext());
+        PreferenceUtils.saveAlarmMagrib("off", getApplicationContext());
+        PreferenceUtils.saveAlarmIsya("off", getApplicationContext());
+        PreferenceUtils.saveAlarmCoba("off", getApplicationContext());
+    }
     public void getDataUsers() {
         final APIInterfacesRest apiInterface = APIClient.getClient().create(APIInterfacesRest.class);
         final Call<List<ModelUsers>> dataUsers = apiInterface.getUsers();

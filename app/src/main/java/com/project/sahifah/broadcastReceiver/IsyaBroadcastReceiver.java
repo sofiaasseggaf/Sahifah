@@ -3,6 +3,7 @@ package com.project.sahifah.broadcastReceiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Vibrator;
 
 import androidx.core.app.NotificationCompat;
@@ -21,7 +22,8 @@ public class IsyaBroadcastReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.ic_alarm)
                 .setContentTitle(TITLE)
                 .setContentText("Memasuki Waktu Sholat Isya")
-                .setPriority(NotificationCompat.PRIORITY_HIGH);
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.azan));
         NotificationManagerCompat notificationManagerIsya = NotificationManagerCompat.from(context);
         notificationManagerIsya.notify(4, builderIsya.build());
         Vibrator vibratorIsya = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);

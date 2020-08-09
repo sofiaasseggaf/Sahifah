@@ -41,6 +41,8 @@
             android:layout_marginLeft="10dp"
             android:layout_centerInParent="true">
         </TextView>
+
+        <!--
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,6 +50,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true">
         </ImageButton>
+        -->
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -60,12 +64,16 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:background="@drawable/img_waktu_sholat">
+        <!--
+
         <ImageButton
-            android:id="@+id/sound"
+            android:id="@+id/btn_setting_soundazan"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/icon_volume_off">
         </ImageButton>
+
+        -->
         <LinearLayout
             android:id="@+id/llwaktu"
             android:layout_width="270dp"
@@ -79,7 +87,6 @@
                 android:id="@+id/txt_now"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="00.00.00"
                 android:textColor="#ffffff"
                 android:textSize="12pt"
                 android:textStyle="bold"
@@ -98,7 +105,6 @@
             android:id="@+id/txtCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jakarta Timur"
             android:textColor="#ffffff"
             android:textSize="7pt"
             android:fontFamily="@font/montserrat_bold"
@@ -118,7 +124,6 @@
             android:id="@+id/txtTanggalHijriyah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5 Muharram 1441"
             android:textColor="#ffffff"
             android:textSize="7pt"
             android:fontFamily="@font/montserrat_bold"
@@ -392,7 +397,7 @@
                         android:id="@+id/notif_terbit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/icon_notification_blue">
+                        android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>
             </RelativeLayout>
@@ -432,7 +437,7 @@
                         android:id="@+id/notif_zuhur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/icon_notification_blue">
+                        android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>
             </RelativeLayout>
@@ -472,7 +477,7 @@
                         android:id="@+id/notif_ashar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/icon_notification_blue">
+                        android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>
             </RelativeLayout>
@@ -512,7 +517,7 @@
                         android:id="@+id/notif_maghrib"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/icon_notification_blue">
+                        android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>
             </RelativeLayout>
@@ -552,7 +557,7 @@
                         android:id="@+id/notif_isya"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/icon_notification_blue">
+                        android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>
             </RelativeLayout>

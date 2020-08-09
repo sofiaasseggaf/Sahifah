@@ -59,13 +59,8 @@ public class DoaContentActivity extends AppCompatActivity {
         //expandableView = findViewById(R.id.expandableView);
         //btn_expand_more = findViewById(R.id.btn_expand_more);
         rl = findViewById(R.id.rl);
-
         btn_back = findViewById(R.id.btn_back);
-        /*btn_home = findViewById(R.id.btn_home);
-        btn_hikmah = findViewById(R.id.btn_hikmah);
-        btn_search = findViewById(R.id.btn_search);
-        btn_oase = findViewById(R.id.btn_oase);
-        btn_profile = findViewById(R.id.btn_profile);*/
+
         txtNamaDoa = findViewById(R.id.txtNamaDoa);
         txtPenjelasan = findViewById(R.id.txt_penjelasan);
         rvDoa = findViewById(R.id.rvDoa);

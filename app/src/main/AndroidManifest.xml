@@ -16,7 +16,7 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@drawable/logo_color"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -97,6 +97,7 @@
         <receiver android:name=".broadcastReceiver.AsharBroadcastReceiver" />
         <receiver android:name=".broadcastReceiver.MaghribBroadcastReceiver" />
         <receiver android:name=".broadcastReceiver.IsyaBroadcastReceiver" />
+        <receiver android:name=".broadcastReceiver.AlarmCobaBroadcastReceiver" />
     </application>
 
 </manifest>
