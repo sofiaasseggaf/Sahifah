@@ -1,7 +1,6 @@
 package com.project.sahifah;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.annotation.SuppressLint;
@@ -59,8 +58,7 @@ import retrofit2.Response;
 
 public class WaktuSalatActivity extends AppCompatActivity {
 
-    ImageButton btn_back;
-    ImageButton btn_home, btn_hikmah, btn_search, btn_oase, btn_profile;
+    ImageButton btn_back, btn_home, btn_hikmah, btn_search, btn_oase, btn_profile;
     ImageButton notif_subuh, notif_zuhur, notif_ashar, notif_maghrib, notif_isya, btn_setting_soundazan, notif_terbit;
     TextView btn_home2, btn_hikmah2, btn_search2, btn_oase2, btn_profile2;
     LinearLayout btn_home3, btn_hikmah3, btn_search3, btn_oase3, btn_profile3;
@@ -68,15 +66,14 @@ public class WaktuSalatActivity extends AppCompatActivity {
     ModelJadwalSolat dataJadwalSolat;
     Time today;
     String subuhalarm, zuhuralarm, asharalarm, maghribalarm, isyaalarm;
-    int subuhalarmjam, subuhalarmmnt, zuhuralarmjam, zuhuralarmmnt, asharalarmjam, asharalarmmnt,
-            maghribalarmjam, maghribalarmmnt, isyaalarmjam, isyaalarmmnt;
+    int subuhalarmjam, subuhalarmmnt, zuhuralarmjam, zuhuralarmmnt, asharalarmjam, asharalarmmnt, maghribalarmjam, maghribalarmmnt, isyaalarmjam, isyaalarmmnt;
     String city;
     int valid;
 
     Calendar now;
-    AlarmManager alarmManager;
-    PendingIntent pendingIntent;
-    Intent intent;
+    AlarmManager alarmManagerTerbit, alarmManagerSubuh, alarmManagerZuhur, alarmManagerAshar, alarmManagerMagrib, alarmManagerIsya;
+    PendingIntent pendingIntentTerbit, pendingIntentSubuh, pendingIntentZuhur, pendingIntentAshar, pendingIntentMagrib, pendingIntentIsya;
+    Intent intentTerbit, intentSubuh, intentZuhur, intentAshar, intentMagrib, intentIsya;
 
     NotificationManagerCompat notificationManagerCompat;
 
@@ -266,12 +263,12 @@ public class WaktuSalatActivity extends AppCompatActivity {
                     PreferenceUtils.saveAlarmCoba("on", getApplicationContext());
                     notif_terbit.setImageDrawable(getDrawable(R.drawable.icon_notification_blue));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Coba Set!", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(WaktuSalatActivity.this, AlarmCobaBroadcastReceiver.class);
+                    intentTerbit = new Intent(WaktuSalatActivity.this, AlarmCobaBroadcastReceiver.class);
                     //intent.putExtra("Ringtone", Uri.parse("getResources().getResourceName(R.raw.azansubuh)"));
-                    pendingIntent = PendingIntent.getBroadcast(WaktuSalatActivity.this,
-                            0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    intent.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
-                    alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    pendingIntentTerbit = PendingIntent.getBroadcast(WaktuSalatActivity.this,
+                            0, intentTerbit, PendingIntent.FLAG_UPDATE_CURRENT);
+                    intentTerbit.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
+                    alarmManagerTerbit = (AlarmManager) getSystemService(ALARM_SERVICE);
                     //alarmManager.cancel(pendingIntent);
 
                     Calendar alarmtime = Calendar.getInstance();
@@ -285,22 +282,17 @@ public class WaktuSalatActivity extends AppCompatActivity {
                         alarmtime.add(Calendar.DATE, 1);
                     }
 
-                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                    alarmManagerTerbit.setRepeating(AlarmManager.RTC_WAKEUP,
                             alarmtime.getTimeInMillis(),
                             AlarmManager.INTERVAL_DAY,
-                            pendingIntent);
+                            pendingIntentTerbit);
                     Log.d("Alarm Coba", "Alarm Coba set for Everyday");
                 }
                 else if(PreferenceUtils.getAlarmCoba(getApplicationContext()).equalsIgnoreCase("on")){
                     PreferenceUtils.saveAlarmCoba("off", getApplicationContext());
                     notif_terbit.setImageDrawable(getDrawable(R.drawable.icon_notification_white));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Coba Stopped!", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(WaktuSalatActivity.this, AlarmCobaBroadcastReceiver.class);
-                    pendingIntent = PendingIntent.getBroadcast(WaktuSalatActivity.this,
-                            0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    intent.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
-                    alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                    alarmManager.cancel(pendingIntent);
+                    alarmManagerTerbit.cancel(pendingIntentTerbit);
                 }
             }
         });
@@ -309,23 +301,17 @@ public class WaktuSalatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (notif_subuh.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_white).getConstantState())){
-                    valid = 0;
-                } else if (notif_subuh.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_blue).getConstantState())){
-                    valid = 1;
-                }
-
-                if (valid==0) {
+                if (PreferenceUtils.getAlarmSubuh(getApplicationContext()).equalsIgnoreCase("off")) {
+                    PreferenceUtils.saveAlarmSubuh("on", getApplicationContext());
                     notif_subuh.setImageDrawable(getDrawable(R.drawable.icon_notification_blue));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Subuh Set!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(WaktuSalatActivity.this, SubuhBroadcastReceiver.class);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(WaktuSalatActivity.this,
-                            0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    intent.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
-                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                    alarmManager.cancel(pendingIntent);
+                    intentSubuh = new Intent(WaktuSalatActivity.this, SubuhBroadcastReceiver.class);
+                    //intent.putExtra("Ringtone", Uri.parse("getResources().getResourceName(R.raw.azansubuh)"));
+                    pendingIntentSubuh = PendingIntent.getBroadcast(WaktuSalatActivity.this,
+                            0, intentSubuh, PendingIntent.FLAG_UPDATE_CURRENT);
+                    intentSubuh.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
+                    alarmManagerSubuh = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    //alarmManager.cancel(pendingIntent);
 
                     Calendar alarmtime = Calendar.getInstance();
                     now = Calendar.getInstance();
@@ -338,15 +324,17 @@ public class WaktuSalatActivity extends AppCompatActivity {
                         alarmtime.add(Calendar.DATE, 1);
                     }
 
-                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                    alarmManagerSubuh.setRepeating(AlarmManager.RTC_WAKEUP,
                             alarmtime.getTimeInMillis(),
                             AlarmManager.INTERVAL_DAY,
-                            pendingIntent);
+                            pendingIntentSubuh);
                     Log.d("Alarm Subuh", "Alarm Subuh set for Everyday");
                 }
-                else if(valid==1){
+                else if(PreferenceUtils.getAlarmSubuh(getApplicationContext()).equalsIgnoreCase("on")){
+                    PreferenceUtils.saveAlarmSubuh("off", getApplicationContext());
                     notif_subuh.setImageDrawable(getDrawable(R.drawable.icon_notification_white));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Subuh Stopped!", Toast.LENGTH_SHORT).show();
+                    alarmManagerSubuh.cancel(pendingIntentSubuh);
                 }
             }
         });
@@ -354,26 +342,20 @@ public class WaktuSalatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (notif_zuhur.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_white).getConstantState())){
-                    valid = 2;
-                } else if (notif_zuhur.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_blue).getConstantState())){
-                    valid = 3;
-                }
-
-                if (valid==2){
+                if (PreferenceUtils.getAlarmZuhur(getApplicationContext()).equalsIgnoreCase("off")) {
+                    PreferenceUtils.saveAlarmZuhur("on", getApplicationContext());
                     notif_zuhur.setImageDrawable(getDrawable(R.drawable.icon_notification_blue));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Zuhur Set!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(WaktuSalatActivity.this, ZuhurBroadcastReceiver.class);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(WaktuSalatActivity.this,
-                            0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    intent.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
-                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                    alarmManager.cancel(pendingIntent);
+                    intentZuhur = new Intent(WaktuSalatActivity.this, ZuhurBroadcastReceiver.class);
+                    //intent.putExtra("Ringtone", Uri.parse("getResources().getResourceName(R.raw.azansubuh)"));
+                    pendingIntentZuhur = PendingIntent.getBroadcast(WaktuSalatActivity.this,
+                            0, intentZuhur, PendingIntent.FLAG_UPDATE_CURRENT);
+                    intentZuhur.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
+                    alarmManagerZuhur = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    //alarmManager.cancel(pendingIntent);
 
                     Calendar alarmtime = Calendar.getInstance();
-                    Calendar now = Calendar.getInstance();
+                    now = Calendar.getInstance();
                     alarmtime.set(Calendar.HOUR_OF_DAY, zuhuralarmjam);
                     alarmtime.set(Calendar.MINUTE, zuhuralarmmnt);
                     alarmtime.set(Calendar.SECOND, 0);
@@ -383,15 +365,17 @@ public class WaktuSalatActivity extends AppCompatActivity {
                         alarmtime.add(Calendar.DATE, 1);
                     }
 
-                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                    alarmManagerZuhur.setRepeating(AlarmManager.RTC_WAKEUP,
                             alarmtime.getTimeInMillis(),
                             AlarmManager.INTERVAL_DAY,
-                            pendingIntent);
+                            pendingIntentZuhur);
                     Log.d("Alarm Zuhur", "Alarm Zuhur set for Everyday");
                 }
-                else if (valid==3){
+                else if(PreferenceUtils.getAlarmZuhur(getApplicationContext()).equalsIgnoreCase("on")){
+                    PreferenceUtils.saveAlarmZuhur("off", getApplicationContext());
                     notif_zuhur.setImageDrawable(getDrawable(R.drawable.icon_notification_white));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Zuhur Stopped!", Toast.LENGTH_SHORT).show();
+                    alarmManagerZuhur.cancel(pendingIntentZuhur);
                 }
             }
         });
@@ -399,26 +383,20 @@ public class WaktuSalatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (notif_ashar.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_white).getConstantState())){
-                    valid = 4;
-                } else if (notif_ashar.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_blue).getConstantState())){
-                    valid = 5;
-                }
-
-                if (valid==4){
+                if (PreferenceUtils.getAlarmAshar(getApplicationContext()).equalsIgnoreCase("off")) {
+                    PreferenceUtils.saveAlarmAshar("on", getApplicationContext());
                     notif_ashar.setImageDrawable(getDrawable(R.drawable.icon_notification_blue));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Ashar Set!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(WaktuSalatActivity.this, AsharBroadcastReceiver.class);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(WaktuSalatActivity.this,
-                            0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    intent.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
-                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                    alarmManager.cancel(pendingIntent);
+                    intentAshar = new Intent(WaktuSalatActivity.this, AsharBroadcastReceiver.class);
+                    //intent.putExtra("Ringtone", Uri.parse("getResources().getResourceName(R.raw.azansubuh)"));
+                    pendingIntentAshar = PendingIntent.getBroadcast(WaktuSalatActivity.this,
+                            0, intentAshar, PendingIntent.FLAG_UPDATE_CURRENT);
+                    intentAshar.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
+                    alarmManagerAshar = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    //alarmManager.cancel(pendingIntent);
 
                     Calendar alarmtime = Calendar.getInstance();
-                    Calendar now = Calendar.getInstance();
+                    now = Calendar.getInstance();
                     alarmtime.set(Calendar.HOUR_OF_DAY, asharalarmjam);
                     alarmtime.set(Calendar.MINUTE, asharalarmmnt);
                     alarmtime.set(Calendar.SECOND, 0);
@@ -428,15 +406,17 @@ public class WaktuSalatActivity extends AppCompatActivity {
                         alarmtime.add(Calendar.DATE, 1);
                     }
 
-                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                    alarmManagerAshar.setRepeating(AlarmManager.RTC_WAKEUP,
                             alarmtime.getTimeInMillis(),
                             AlarmManager.INTERVAL_DAY,
-                            pendingIntent);
+                            pendingIntentAshar);
                     Log.d("Alarm Ashar", "Alarm Ashar set for Everyday");
                 }
-                else if (valid==5){
+                else if(PreferenceUtils.getAlarmAshar(getApplicationContext()).equalsIgnoreCase("on")){
+                    PreferenceUtils.saveAlarmAshar("off", getApplicationContext());
                     notif_ashar.setImageDrawable(getDrawable(R.drawable.icon_notification_white));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Ashar Stopped!", Toast.LENGTH_SHORT).show();
+                    alarmManagerAshar.cancel(pendingIntentAshar);
                 }
             }
         });
@@ -444,26 +424,20 @@ public class WaktuSalatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (notif_maghrib.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_white).getConstantState())){
-                    valid = 6;
-                } else if (notif_maghrib.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_blue).getConstantState())){
-                    valid = 7;
-                }
-
-                if (valid==6) {
+                if (PreferenceUtils.getAlarmMagrib(getApplicationContext()).equalsIgnoreCase("off")) {
+                    PreferenceUtils.saveAlarmMagrib("on", getApplicationContext());
                     notif_maghrib.setImageDrawable(getDrawable(R.drawable.icon_notification_blue));
-                    Toast.makeText(WaktuSalatActivity.this, "Reminder Maghrib Set!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(WaktuSalatActivity.this, MaghribBroadcastReceiver.class);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(WaktuSalatActivity.this,
-                            0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    intent.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
-                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                    alarmManager.cancel(pendingIntent);
+                    Toast.makeText(WaktuSalatActivity.this, "Reminder Magrib Set!", Toast.LENGTH_SHORT).show();
+                    intentMagrib = new Intent(WaktuSalatActivity.this, MaghribBroadcastReceiver.class);
+                    //intent.putExtra("Ringtone", Uri.parse("getResources().getResourceName(R.raw.azansubuh)"));
+                    pendingIntentMagrib = PendingIntent.getBroadcast(WaktuSalatActivity.this,
+                            0, intentMagrib, PendingIntent.FLAG_UPDATE_CURRENT);
+                    intentMagrib.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
+                    alarmManagerMagrib = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    //alarmManager.cancel(pendingIntent);
 
                     Calendar alarmtime = Calendar.getInstance();
-                    Calendar now = Calendar.getInstance();
+                    now = Calendar.getInstance();
                     alarmtime.set(Calendar.HOUR_OF_DAY, maghribalarmjam);
                     alarmtime.set(Calendar.MINUTE, maghribalarmmnt);
                     alarmtime.set(Calendar.SECOND, 0);
@@ -473,45 +447,40 @@ public class WaktuSalatActivity extends AppCompatActivity {
                         alarmtime.add(Calendar.DATE, 1);
                     }
 
-                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                    alarmManagerMagrib.setRepeating(AlarmManager.RTC_WAKEUP,
                             alarmtime.getTimeInMillis(),
                             AlarmManager.INTERVAL_DAY,
-                            pendingIntent);
-                    Log.d("Alarm Maghrib", "Alarm Maghrib set for Everyday");
+                            pendingIntentMagrib);
+                    Log.d("Alarm Magrib", "Alarm Magrib set for Everyday");
                 }
-                else if (valid==7) {
+                else if(PreferenceUtils.getAlarmMagrib(getApplicationContext()).equalsIgnoreCase("on")){
+                    PreferenceUtils.saveAlarmMagrib("off", getApplicationContext());
                     notif_maghrib.setImageDrawable(getDrawable(R.drawable.icon_notification_white));
-                    Toast.makeText(WaktuSalatActivity.this, "Reminder Maghrib Stopped!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(WaktuSalatActivity.this, "Reminder Magrib Stopped!", Toast.LENGTH_SHORT).show();
+                    alarmManagerMagrib.cancel(pendingIntentMagrib);
                 }
-
             }
         });
         notif_isya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (notif_isya.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_white).getConstantState())){
-                    valid = 8;
-                } else if (notif_isya.getBackground().getConstantState()
-                        .equals(getResources().getDrawable(R.drawable.icon_notification_blue).getConstantState())){
-                    valid = 9;
-                }
-
-                if (valid==8){
+                if (PreferenceUtils.getAlarmIsya(getApplicationContext()).equalsIgnoreCase("off")) {
+                    PreferenceUtils.saveAlarmIsya("on", getApplicationContext());
                     notif_isya.setImageDrawable(getDrawable(R.drawable.icon_notification_blue));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Isya Set!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(WaktuSalatActivity.this, IsyaBroadcastReceiver.class);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(WaktuSalatActivity.this,
-                            0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                    intent.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
-                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                    alarmManager.cancel(pendingIntent);
+                    intentIsya = new Intent(WaktuSalatActivity.this, IsyaBroadcastReceiver.class);
+                    //intent.putExtra("Ringtone", Uri.parse("getResources().getResourceName(R.raw.azansubuh)"));
+                    pendingIntentIsya = PendingIntent.getBroadcast(WaktuSalatActivity.this,
+                            0, intentIsya, PendingIntent.FLAG_UPDATE_CURRENT);
+                    intentIsya.setData((Uri.parse("Custom://"+System.currentTimeMillis())));
+                    alarmManagerIsya = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    //alarmManager.cancel(pendingIntent);
 
                     Calendar alarmtime = Calendar.getInstance();
-                    Calendar now = Calendar.getInstance();
-                    alarmtime.set(Calendar.HOUR_OF_DAY, isyaalarmjam);
-                    alarmtime.set(Calendar.MINUTE, isyaalarmmnt);
+                    now = Calendar.getInstance();
+                    alarmtime.set(Calendar.HOUR_OF_DAY, maghribalarmjam);
+                    alarmtime.set(Calendar.MINUTE, maghribalarmmnt);
                     alarmtime.set(Calendar.SECOND, 0);
 
                     if (now.after(alarmtime)) {
@@ -519,32 +488,31 @@ public class WaktuSalatActivity extends AppCompatActivity {
                         alarmtime.add(Calendar.DATE, 1);
                     }
 
-                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                    alarmManagerIsya.setRepeating(AlarmManager.RTC_WAKEUP,
                             alarmtime.getTimeInMillis(),
                             AlarmManager.INTERVAL_DAY,
-                            pendingIntent);
+                            pendingIntentIsya);
                     Log.d("Alarm Isya", "Alarm Isya set for Everyday");
                 }
-                else if (valid==9){
-                    notif_isya.setImageDrawable(getDrawable(R.drawable.icon_notification_blue));
+                else if(PreferenceUtils.getAlarmIsya(getApplicationContext()).equalsIgnoreCase("on")){
+                    PreferenceUtils.saveAlarmIsya("off", getApplicationContext());
+                    notif_isya.setImageDrawable(getDrawable(R.drawable.icon_notification_white));
                     Toast.makeText(WaktuSalatActivity.this, "Reminder Isya Stopped!", Toast.LENGTH_SHORT).show();
+                    alarmManagerIsya.cancel(pendingIntentIsya);
                 }
-
             }
         });
-
-
     }
 
     public void sendNotifCoba(){
         String msg = "Memasuki Waktu Sholat Coba";
-        AudioAttributes att = new AudioAttributes.Builder()
+        /*AudioAttributes att = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_NOTIFICATION)
                 .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                .build();
+                .build();*/
         NotificationChannel channel = new NotificationChannel("coba", "Notif Coba", NotificationManager.IMPORTANCE_HIGH);
         channel.setDescription(msg);
-        channel.setSound(Uri.parse("android.resource://"+this.getPackageName()+"/" + R.raw.azansubuh), att);
+        //channel.setSound(Uri.parse("android.resource://"+this.getPackageName()+"/" + R.raw.azansubuh), att);
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);
     }

@@ -23,8 +23,6 @@ public class SubuhBroadcastReceiver extends BroadcastReceiver {
                 .setContentTitle(TITLE)
                 .setContentText("Memasuki Waktu Sholat Subuh")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.azansubuh))
-                //.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 })
                 ;
         NotificationManagerCompat notificationManagerSubuh = NotificationManagerCompat.from(context);
         notificationManagerSubuh.notify(1, builderSubuh.build());

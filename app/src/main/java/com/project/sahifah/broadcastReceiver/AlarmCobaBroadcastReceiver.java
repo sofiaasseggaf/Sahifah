@@ -25,7 +25,7 @@ public class AlarmCobaBroadcastReceiver extends BroadcastReceiver {
                 .setContentTitle(TITLE)
                 .setContentText("Memasuki Waktu Sholat Coba")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setDefaults(Notification.DEFAULT_ALL)
+                //.setDefaults(Notification.DEFAULT_ALL)
                 //.setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.azansubuh))
                 //.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 })
                 ;
