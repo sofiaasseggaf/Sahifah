@@ -22,7 +22,7 @@
         android:layout_gravity="center"
         android:textAlignment="center"
         android:fontFamily="@font/montserrat_regular"
-        android:textSize="6pt">
+        android:textSize="14sp">
 
     </TextView>
 </LinearLayout>

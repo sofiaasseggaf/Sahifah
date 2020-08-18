@@ -14,7 +14,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="8dp"
+        android:layout_height="4dp"
         android:layout_marginBottom="20dp"
         android:background="#4395B17E"/>
 
@@ -22,7 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="50dp">
+        android:layout_marginLeft="20dp">
+
+        <!--
         <TextView
             android:id="@+id/txtNoAyat"
             android:layout_width="wrap_content"
@@ -33,6 +35,8 @@
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true">
         </TextView>
+        -->
+
         <TextView
             android:id="@+id/txtArab"
             android:layout_width="wrap_content"
@@ -43,16 +47,20 @@
             android:text="teks bahasa arab"
             android:fontFamily="@font/majalla"
             android:maxLines="5"
-            android:textSize="14pt">
+            android:textSize="16pt">
         </TextView>
     </RelativeLayout>
+
+<!--
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@drawable/line"
         android:scaleType="centerInside"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginLeft="20dp"/>
+-->
+
 
     <TextView
         android:id="@+id/txtBaca"
@@ -60,25 +68,29 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="20dp"
         android:textColor="#3B8100"
         android:textSize="9pt"
         android:text="teks latin indo"
         android:fontFamily="@font/merriweather">
     </TextView>
 
+<!--
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@drawable/line"
         android:scaleType="centerInside"
-        android:layout_marginLeft="50dp"/>
+        android:layout_marginLeft="20dp"/>
+-->
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginBottom="10dp">
         <TextView
             android:id="@+id/txtNo"

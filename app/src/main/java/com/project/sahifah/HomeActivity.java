@@ -145,12 +145,20 @@ public class HomeActivity extends AppCompatActivity implements ConnectivityRecei
         txtTanggalHij = findViewById(R.id.txtTanggalHij);
         txtCity = findViewById(R.id.txtCity);
         txtWaktuSholat = findViewById(R.id.txtWaktuSholat);
-        txtWaktuazan = findViewById(R.id.txtWaktuazan);
+//        txtWaktuazan = findViewById(R.id.txtWaktuazan);
         txtNama = findViewById(R.id.txtNama);
+
+
+        txtNama.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        //txtTanggal.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        //txtTanggalHij.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        //txtCity.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        //txtWaktuazan.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        //txtWaktuSholat.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
 
         checkConnection();
         dataUser = getIntent().getParcelableExtra("dataUser");
-        txtNama.setText(PreferenceUtils.getName(this));
+        txtNama.setText("Assalamualaikum,\n"+PreferenceUtils.getName(this));
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -670,7 +678,7 @@ public class HomeActivity extends AppCompatActivity implements ConnectivityRecei
                 public void run() {
                     Time today = new Time(Time.getCurrentTimezone());
                     today.setToNow();
-                    txtWaktuazan.setText(today.format("%k:%M:%S") + " menuju waktu sholat");
+                    //txtWaktuazan.setText(today.format("%k:%M:%S") + " menuju waktu sholat");
                 }
             });
         }

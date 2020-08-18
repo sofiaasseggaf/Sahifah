@@ -13,4 +13,6 @@ public class Constants {
     public static String ALARM_ISYA = "isya";
 
     public static String ALARM_COBA = "coba";
+    public static String UKURAN_FONT = "font";
+    public static String UKURAN_FONT_ARAB = "fontarab";
 }

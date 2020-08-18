@@ -63,6 +63,7 @@ public class WaktuSalatActivity extends AppCompatActivity {
     TextView btn_home2, btn_hikmah2, btn_search2, btn_oase2, btn_profile2;
     LinearLayout btn_home3, btn_hikmah3, btn_search3, btn_oase3, btn_profile3;
     TextView txt_now, txtTanggalMasehi, txtTanggalHijriyah, txtCity, waktuSubuh, waktuTerbit, waktuZuhur, waktuAshar, waktuMagrib, waktuIsya;
+    TextView t1, t2, t3, t4, t5, t6;
     ModelJadwalSolat dataJadwalSolat;
     Time today;
     String subuhalarm, zuhuralarm, asharalarm, maghribalarm, isyaalarm;
@@ -109,6 +110,12 @@ public class WaktuSalatActivity extends AppCompatActivity {
         waktuAshar = findViewById(R.id.waktuAshar);
         waktuMagrib = findViewById(R.id.waktuMagrib);
         waktuIsya = findViewById(R.id.waktuIsya);
+        t1 = findViewById(R.id.t1);
+        t2 = findViewById(R.id.t2);
+        t3 = findViewById(R.id.t3);
+        t4 = findViewById(R.id.t4);
+        t5 = findViewById(R.id.t5);
+        t6 = findViewById(R.id.t6);
 
         notif_terbit = findViewById(R.id.notif_terbit);
         notif_subuh = findViewById(R.id.notif_subuh);
@@ -585,6 +592,19 @@ public class WaktuSalatActivity extends AppCompatActivity {
         waktuAshar.setText(dataJadwalSolat.getResults().getDatetime().get(0).getTimes().getAsr());
         waktuMagrib.setText(dataJadwalSolat.getResults().getDatetime().get(0).getTimes().getMaghrib());
         waktuIsya.setText(dataJadwalSolat.getResults().getDatetime().get(0).getTimes().getIsha());
+
+        waktuSubuh.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        waktuZuhur.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        waktuAshar.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        waktuMagrib.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        waktuIsya.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        waktuTerbit.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        t1.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        t2.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        t3.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        t4.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        t5.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        t6.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
 
         if (PreferenceUtils.getAlarmCoba(getApplicationContext()).equalsIgnoreCase("on")){
             notif_terbit.setImageDrawable(getDrawable(R.drawable.icon_notification_blue));

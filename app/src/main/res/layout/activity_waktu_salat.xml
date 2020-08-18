@@ -334,10 +334,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/t1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Subuh"
-                    android:textSize="8pt"
                     android:textColor="#919191">
                 </TextView>
                 <LinearLayout
@@ -354,8 +354,9 @@
 
                     <ImageButton
                         android:id="@+id/notif_subuh"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/icon_notification_white" >
                         <!--android:onClick="setTimerSubuh"-->
                     </ImageButton>
@@ -376,10 +377,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/t2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Terbit"
-                    android:textSize="8pt"
                     android:textColor="#919191">
                 </TextView>
                 <LinearLayout
@@ -395,8 +396,9 @@
                     </TextView>
                     <ImageButton
                         android:id="@+id/notif_terbit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>
@@ -416,6 +418,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/t3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Zuhur"
@@ -435,8 +438,9 @@
                     </TextView>
                     <ImageButton
                         android:id="@+id/notif_zuhur"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>
@@ -456,6 +460,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/t4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ashar"
@@ -475,8 +480,9 @@
                     </TextView>
                     <ImageButton
                         android:id="@+id/notif_ashar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>
@@ -496,6 +502,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/t5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Magrib"
@@ -515,8 +522,9 @@
                     </TextView>
                     <ImageButton
                         android:id="@+id/notif_maghrib"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>
@@ -536,6 +544,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/t6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Isya"
@@ -555,8 +564,9 @@
                     </TextView>
                     <ImageButton
                         android:id="@+id/notif_isya"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/icon_notification_white">
                     </ImageButton>
                 </LinearLayout>

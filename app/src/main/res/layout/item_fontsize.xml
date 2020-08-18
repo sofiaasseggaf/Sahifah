@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <SeekBar
+        android:id="@+id/seekbarFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:min="16"
+        android:max="26"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textviewFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ukuran Text Anda : "
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginTop="30dp"/>
+
+    <SeekBar
+        android:id="@+id/seekbarFontArab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:min="16"
+        android:max="50"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/textviewFontukuranarab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ukuran Text Arab Anda : "
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/textviewFontArab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

@@ -177,12 +177,16 @@
             android:layout_height="wrap_content"
             android:background="@drawable/arrow_back_black">
         </ImageButton>
+
+    <!--
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:background="@drawable/icon_menu_black">
         </ImageButton>
+    -->
+
     </RelativeLayout>
 
     <LinearLayout

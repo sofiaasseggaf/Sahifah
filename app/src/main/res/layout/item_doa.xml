@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingTop="10dp"
     android:paddingRight="10dp"
     android:paddingLeft="10dp"
@@ -19,14 +19,13 @@
 
     <TextView
         android:id="@+id/txtArab"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:gravity="center"
         android:textStyle="bold"
         android:text="teks bahasa arab"
-        android:fontFamily="@font/majalla"
-        android:textSize="16pt">
+        android:textSize="32sp"
+        android:fontFamily="@font/majalla">
     </TextView>
 
     <TextView
@@ -37,7 +36,7 @@
         android:layout_marginBottom="20dp"
         android:textColor="#3B8100"
         android:gravity="center"
-        android:textSize="8pt"
+        android:textSize="16sp"
         android:text="teks latin indo"
         android:fontFamily="@font/merriweather"
         android:textStyle="italic">

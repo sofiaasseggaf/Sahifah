@@ -126,4 +126,30 @@ public class PreferenceUtils {
         return prefs.getString(Constants.ALARM_COBA, null);
     }
 
+    public static boolean saveUkuranFont(int i, Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putInt(Constants.UKURAN_FONT, i);
+        prefsEditor.apply();
+        return true;
+    }
+
+    public static int getUkuranFont(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(Constants.UKURAN_FONT, 16);
+    }
+
+    public static boolean saveUkuranFontArab(int x, Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putInt(Constants.UKURAN_FONT_ARAB, x);
+        prefsEditor.apply();
+        return true;
+    }
+
+    public static int getUkuranFontArab(Context context){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt(Constants.UKURAN_FONT_ARAB, 30);
+    }
+
 }

@@ -8,10 +8,12 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.project.sahifah.oase.OaseActivity;
@@ -25,8 +27,10 @@ public class ProfileActivity extends AppCompatActivity {
     LinearLayout btn_home3, btn_hikmah3, btn_search3, btn_oase3, btn_profile3;
     TextView txt_nama;
 
+    int fontSize, fontSizeArab;
+
     LinearLayout btn_kontak_kami, btn_kontak_kami2, btn_bagikan_app, btn_bagikan_app2, btn_beri_penilaian, btn_beri_penilaian2;
-    LinearLayout btn_logout, btn_logout2, btn_faq, btn_faq2;
+    LinearLayout btn_size, btn_size2, btn_logout, btn_logout2, btn_faq, btn_faq2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,8 @@ public class ProfileActivity extends AppCompatActivity {
         txt_nama = findViewById(R.id.txt_nama);
         btn_logout = findViewById(R.id.btn_logout);
         btn_logout2 = findViewById(R.id.btn_logout2);
+        btn_size = findViewById(R.id.btn_size);
+        btn_size2 = findViewById(R.id.btn_size2);
         btn_faq = findViewById(R.id.btn_faq);
         btn_faq2 = findViewById(R.id.btn_faq2);
         btn_beri_penilaian = findViewById(R.id.btn_beri_penilaian);
@@ -156,6 +162,18 @@ public class ProfileActivity extends AppCompatActivity {
                 showPopup();
             }
         });
+        btn_size.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogFont();
+            }
+        });
+        btn_size2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogFont();
+            }
+        });
         btn_kontak_kami.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -249,6 +267,82 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
         AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    public void dialogFont(){
+
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.item_fontsize, null);
+
+        SeekBar seekbarFont = view.findViewById(R.id.seekbarFont);
+        TextView textviewFont = view.findViewById(R.id.textviewFont);
+        SeekBar seekbarFontArab = view.findViewById(R.id.seekbarFontArab);
+        TextView textviewFontArab = view.findViewById(R.id.textviewFontArab);
+        TextView textviewFontukuranarab = view.findViewById(R.id.textviewFontukuranarab);
+
+        seekbarFont.setProgress(PreferenceUtils.getUkuranFont(getApplicationContext()));
+        textviewFont.setTextSize((float)PreferenceUtils.getUkuranFont(getApplicationContext()));
+        textviewFont.setText("Ukuran Text Anda : "+PreferenceUtils.getUkuranFont(getApplicationContext()));
+        seekbarFontArab.setProgress(PreferenceUtils.getUkuranFontArab(getApplicationContext()));
+        textviewFontArab.setTextSize((float)PreferenceUtils.getUkuranFontArab(getApplicationContext()));
+        textviewFontukuranarab.setText("Ukuran Text Arab Anda : "+PreferenceUtils.getUkuranFontArab(getApplicationContext()));
+
+        seekbarFont.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                fontSize = progress;
+                textviewFont.setTextSize((float)progress);
+                textviewFont.setText("Ukuran Text Anda : "+progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        seekbarFontArab.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                fontSizeArab = progress;
+                textviewFontArab.setTextSize((float)progress);
+                textviewFontukuranarab.setText("Ukuran Text Arab Anda : "+progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        AlertDialog.Builder builderfont = new AlertDialog.Builder(ProfileActivity.this);
+        builderfont.setView(view)
+                .setTitle("Set Font Size")
+                .setPositiveButton("save font size", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        PreferenceUtils.saveUkuranFont(fontSize,getApplicationContext());
+                        PreferenceUtils.saveUkuranFontArab(fontSizeArab,getApplicationContext());
+                    }
+                })
+                .setNegativeButton("close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = builderfont.create();
         alertDialog.show();
     }
 

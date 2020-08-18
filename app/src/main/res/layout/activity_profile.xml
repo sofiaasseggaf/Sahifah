@@ -134,9 +134,10 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <!--
+
 
                 <LinearLayout
+                    android:id="@+id/btn_size"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
@@ -152,6 +153,7 @@
                         android:src="@drawable/icon_mobile_friendly">
                     </ImageView>
                     <LinearLayout
+                        android:id="@+id/btn_size2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -168,11 +170,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_regular"
-                            android:text="Atur jenis dan ukuran font serta tampilan lainnyaa"
+                            android:text="Atur jenis dan ukuran font"
                             android:textSize="14sp">
                         </TextView>
                     </LinearLayout>
                 </LinearLayout>
+
+                <!--
 
                 <LinearLayout
                     android:layout_width="match_parent"

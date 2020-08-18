@@ -36,6 +36,8 @@
             android:layout_marginLeft="10dp"
             android:layout_centerInParent="true">
         </TextView>
+
+        <!--
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,6 +60,8 @@
                 </ImageButton>
             </LinearLayout>
         </RelativeLayout>
+        -->
+
     </RelativeLayout>
 
     <ScrollView
@@ -98,42 +102,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentBottom="true">
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical">
-                    <ImageButton
-                        android:layout_width="wrap_content"
+                    android:background="@drawable/rect_white"
+                    android:layout_below="@id/hikmah_img"
+                    android:layout_margin="10dp">
+                    <FrameLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:background="@drawable/icon_love">
-                    </ImageButton>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="70dp">
-                    </TextView>
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="90dp"
-                        android:background="@drawable/icon_comment">
-                    </ImageButton>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="160dp">
-                    </TextView>
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginRight="20dp"
-                        android:background="@drawable/icon_share_grey">
-                    </ImageButton>
-                </FrameLayout>
+                        android:paddingBottom="20dp"
+                        android:paddingTop="15dp"
+                        android:layout_gravity="center_vertical">
+                        <ImageButton
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="25dp"
+                            android:background="@drawable/icon_love">
+                        </ImageButton>
+                        <ImageButton
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="80dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/icon_comment">
+                        </ImageButton>
+                        <ImageButton
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="30dp"
+                            android:background="@drawable/icon_share_grey">
+                        </ImageButton>
+                    </FrameLayout>
                 </LinearLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -162,39 +160,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_alignParentBottom="true">
+                    android:background="@drawable/rect_white"
+                    android:layout_below="@id/hikmah_imga"
+                    android:layout_margin="10dp">
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:paddingBottom="20dp"
+                        android:paddingTop="15dp"
                         android:layout_gravity="center_vertical">
                         <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="25dp"
                             android:background="@drawable/icon_love">
                         </ImageButton>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="70dp">
-                        </TextView>
                         <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="90dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="80dp"
+                            android:layout_marginTop="2dp"
                             android:background="@drawable/icon_comment">
                         </ImageButton>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="160dp">
-                        </TextView>
                         <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:layout_gravity="right"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginRight="30dp"
                             android:background="@drawable/icon_share_grey">
                         </ImageButton>
                     </FrameLayout>
