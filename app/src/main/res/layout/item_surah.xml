@@ -11,12 +11,20 @@
     android:clickable="true"
     android:layout_marginBottom="20dp">
 
-
+<!--
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:layout_marginBottom="20dp"
         android:background="#4395B17E"/>
+    -->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/line"
+        android:scaleType="centerInside"
+        android:layout_marginBottom="20dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

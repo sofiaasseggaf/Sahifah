@@ -2,8 +2,6 @@ package com.project.sahifah.doa;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -18,14 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.sahifah.APIService.APIClient;
 import com.project.sahifah.APIService.APIInterfacesRest;
-import com.project.sahifah.HikmahActivity;
-import com.project.sahifah.HomeActivity;
-import com.project.sahifah.ProfileActivity;
 import com.project.sahifah.R;
-import com.project.sahifah.adapter.AdapterDoa;
+import com.project.sahifah.adapter.adapterdoa.AdapterDoa;
 import com.project.sahifah.model.doa.Detail;
 import com.project.sahifah.model.doa.ModelDoaHarian;
-import com.project.sahifah.oase.OaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

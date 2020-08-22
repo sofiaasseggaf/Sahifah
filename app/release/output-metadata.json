@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.project.sahifah",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [],
+      "properties": [],
+      "versionCode": 7,
+      "versionName": "5.0.2",
+      "enabled": true,
+      "outputFile": "app-universal-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "DENSITY",
+          "value": "hdpi"
+        }
+      ],
+      "properties": [],
+      "versionCode": 1007,
+      "versionName": "5.0.2",
+      "enabled": true,
+      "outputFile": "app-hdpi-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "DENSITY",
+          "value": "ldpi"
+        }
+      ],
+      "properties": [],
+      "versionCode": 2007,
+      "versionName": "5.0.2",
+      "enabled": true,
+      "outputFile": "app-ldpi-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "DENSITY",
+          "value": "xxxhdpi"
+        }
+      ],
+      "properties": [],
+      "versionCode": 6007,
+      "versionName": "5.0.2",
+      "enabled": true,
+      "outputFile": "app-xxxhdpi-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "DENSITY",
+          "value": "mdpi"
+        }
+      ],
+      "properties": [],
+      "versionCode": 3007,
+      "versionName": "5.0.2",
+      "enabled": true,
+      "outputFile": "app-mdpi-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "DENSITY",
+          "value": "xxhdpi"
+        }
+      ],
+      "properties": [],
+      "versionCode": 5007,
+      "versionName": "5.0.2",
+      "enabled": true,
+      "outputFile": "app-xxhdpi-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "DENSITY",
+          "value": "xhdpi"
+        }
+      ],
+      "properties": [],
+      "versionCode": 4007,
+      "versionName": "5.0.2",
+      "enabled": true,
+      "outputFile": "app-xhdpi-release.apk"
+    }
+  ]
+}

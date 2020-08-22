@@ -11,9 +11,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.project.sahifah.oase.OaseActivity;
@@ -270,6 +272,7 @@ public class ProfileActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+
     public void dialogFont(){
 
         LayoutInflater inflater = getLayoutInflater();
@@ -372,6 +375,8 @@ public class ProfileActivity extends AppCompatActivity {
         PreferenceUtils.saveAlarmAshar("off", getApplicationContext());
         PreferenceUtils.saveAlarmMagrib("off", getApplicationContext());
         PreferenceUtils.saveAlarmIsya("off", getApplicationContext());
+        PreferenceUtils.saveUkuranFont(16, getApplicationContext());
+        PreferenceUtils.saveUkuranFontArab(16, getApplicationContext());
         Intent a = new Intent(ProfileActivity.this, LoginActivity.class);
         startActivity(a);
         finish();

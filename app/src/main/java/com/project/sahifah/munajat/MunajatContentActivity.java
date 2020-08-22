@@ -2,32 +2,16 @@ package com.project.sahifah.munajat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.project.sahifah.APIService.APIClient;
-import com.project.sahifah.APIService.APIInterfacesRest;
-import com.project.sahifah.HikmahActivity;
-import com.project.sahifah.HomeActivity;
-import com.project.sahifah.adapter.AdapterDoa;
-import com.project.sahifah.doa.DoaContentActivity;
-import com.project.sahifah.oase.OaseActivity;
-import com.project.sahifah.ProfileActivity;
+import com.project.sahifah.adapter.adapterdoa.AdapterDoa;
 import com.project.sahifah.R;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MunajatContentActivity extends AppCompatActivity {
 

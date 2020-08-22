@@ -2,7 +2,6 @@ package com.project.sahifah;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,10 +16,7 @@ import android.widget.Toast;
 
 import com.project.sahifah.APIService.APIClient;
 import com.project.sahifah.APIService.APIInterfacesRest;
-import com.project.sahifah.adapter.AdapterDoa;
-import com.project.sahifah.doa.DoaContentActivity;
 import com.project.sahifah.model.ModelUsers;
-import com.project.sahifah.model.doa.ModelDoaHarian;
 import com.project.sahifah.utility.PreferenceUtils;
 
 import java.util.ArrayList;

@@ -22,7 +22,8 @@
         android:text="Ukuran Text Anda : "
         android:layout_gravity="center"
         android:fontFamily="@font/montserrat_regular"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"/>
 
     <SeekBar
         android:id="@+id/seekbarFontArab"
@@ -49,6 +50,7 @@
         android:layout_height="wrap_content"
         android:text=" بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم"
         android:layout_gravity="center"
+        android:textSize="16sp"
         android:fontFamily="@font/montserrat_regular"
         android:layout_marginTop="20dp"/>
 

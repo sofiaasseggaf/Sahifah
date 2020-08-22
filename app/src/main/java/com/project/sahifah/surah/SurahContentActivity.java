@@ -33,7 +33,7 @@ public class SurahContentActivity extends AppCompatActivity {
 
     TextView txtNamaSurah;
     String namasurah, suraId;
-    ImageButton btn_back;
+    ImageButton btn_back, btn_setting;
     ImageButton btn_home, btn_hikmah, btn_search, btn_oase, btn_profile;
 
     //ModelQuran dataModelSurah;
@@ -58,6 +58,7 @@ public class SurahContentActivity extends AppCompatActivity {
 
         namasurah = getIntent().getStringExtra("namasurah");
         suraId = getIntent().getStringExtra("suraId");
+        btn_setting = findViewById(R.id.btn_setting);
         txtNamaSurah.setText(namasurah);
 
         //getDataSurah();
