@@ -21,14 +21,42 @@
       "filters": [
         {
           "filterType": "DENSITY",
-          "value": "hdpi"
+          "value": "mdpi"
         }
       ],
       "properties": [],
-      "versionCode": 1007,
+      "versionCode": 3007,
       "versionName": "5.0.2",
       "enabled": true,
-      "outputFile": "app-hdpi-release.apk"
+      "outputFile": "app-mdpi-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "DENSITY",
+          "value": "xhdpi"
+        }
+      ],
+      "properties": [],
+      "versionCode": 4007,
+      "versionName": "5.0.2",
+      "enabled": true,
+      "outputFile": "app-xhdpi-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "DENSITY",
+          "value": "xxhdpi"
+        }
+      ],
+      "properties": [],
+      "versionCode": 5007,
+      "versionName": "5.0.2",
+      "enabled": true,
+      "outputFile": "app-xxhdpi-release.apk"
     },
     {
       "type": "ONE_OF_MANY",
@@ -63,42 +91,14 @@
       "filters": [
         {
           "filterType": "DENSITY",
-          "value": "mdpi"
+          "value": "hdpi"
         }
       ],
       "properties": [],
-      "versionCode": 3007,
+      "versionCode": 1007,
       "versionName": "5.0.2",
       "enabled": true,
-      "outputFile": "app-mdpi-release.apk"
-    },
-    {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "DENSITY",
-          "value": "xxhdpi"
-        }
-      ],
-      "properties": [],
-      "versionCode": 5007,
-      "versionName": "5.0.2",
-      "enabled": true,
-      "outputFile": "app-xxhdpi-release.apk"
-    },
-    {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "DENSITY",
-          "value": "xhdpi"
-        }
-      ],
-      "properties": [],
-      "versionCode": 4007,
-      "versionName": "5.0.2",
-      "enabled": true,
-      "outputFile": "app-xhdpi-release.apk"
+      "outputFile": "app-hdpi-release.apk"
     }
   ]
 }

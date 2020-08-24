@@ -69,6 +69,8 @@ import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import groovy.util.IFileNameFinder;
+
 import static com.project.sahifah.broadcastReceiver.NetworkStateChangeReceiver.IS_NETWORK_AVAILABLE;
 
 public class HomeActivity extends AppCompatActivity implements ConnectivityReceiver.ConnectivityReceiverListener {
@@ -629,6 +631,47 @@ public class HomeActivity extends AppCompatActivity implements ConnectivityRecei
                     jamm = Integer.parseInt(jam.format(calendar.getTime()));
                     mntt = Integer.parseInt(mnt.format(calendar.getTime()));
 
+                    if (jamm == 04){
+                        if (mntt <= 45){
+                            txtWaktuSholat.setText("MEMASUKI WAKTU SUBUH");
+                        } else if (mntt > 45){
+                            txtWaktuSholat.setText("WAKTU MELAKSANAKAN SHALAT SUBUH");
+                        }
+                    } else if (jamm == 11) {
+                        if (mntt <= 51) {
+                            txtWaktuSholat.setText("MEMASUKI WAKTU ZUHUR");
+                        } else if (mntt > 51) {
+                            txtWaktuSholat.setText("WAKTU MELAKSANAKAN SHALAT ZUHUR");
+                        }
+                    } else if (jamm < 15){
+                        txtWaktuSholat.setText("WAKTU MELAKSANAKAN SHALAT ZUHUR");
+                    } else if (jamm == 15) {
+                        if (mntt <= 15) {
+                            txtWaktuSholat.setText("MEMASUKI WAKTU ASHAR");
+                        } else if (mntt > 15) {
+                            txtWaktuSholat.setText("WAKTU MELAKSANAKAN SHALAT ASHAR");
+                        }
+                    } else if (jamm == 16){
+                        txtWaktuSholat.setText("WAKTU MELAKSANAKAN SHALAT ASHAR");
+                    } else if (jamm == 17){
+                        if (mntt <= 57){
+                            txtWaktuSholat.setText("MEMASUKI WAKTU MAGHRIB");
+                        } else if (mntt > 57){
+                            txtWaktuSholat.setText("WAKTU MELAKSANAKAN SHALAT MAGHRIB");
+                        }
+                    } else if (jamm == 18){
+                        if (mntt <= 35){
+                            txtWaktuSholat.setText("WAKTU MELAKSANAKAN SHALAT MAGHRIB");
+                        }else if (mntt <= 55){
+                            txtWaktuSholat.setText("MEMASUKI WAKTU ISYA");
+                        } else if (mntt > 55){
+                            txtWaktuSholat.setText("WAKTU MELAKSANAKAN SHALAT ISYA");
+                        }
+                    } else if (jamm > 18 && jamm < 23) {
+                        txtWaktuSholat.setText("WAKTU MELAKSANAKAN SHALAT ISYA");
+                    }
+
+                    /*
                     if (jamm < 04 && mntt < 43) {
                         txtWaktuSholat.setText("SUBUH 04:43");
                     } else if (jamm < 11 && mntt < 51) {
@@ -644,6 +687,8 @@ public class HomeActivity extends AppCompatActivity implements ConnectivityRecei
                     } else if (jamm > 18) {
                         txtWaktuSholat.setText("SUBUH 04:43");
                     }
+                    */
+
                 }
             });
         }

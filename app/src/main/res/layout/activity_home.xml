@@ -59,10 +59,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_marginRight="10dp"
                         android:orientation="vertical">
                         <TextView
                             android:id="@+id/txtCity"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text=". . . "
                             android:fontFamily="@font/montserrat_regular"
@@ -72,10 +73,10 @@
                         </TextView>
                         <TextView
                             android:id="@+id/txtWaktuSholat"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text=". . . "
-                            android:textSize="14sp"
+                            android:textSize="12sp"
                             android:fontFamily="@font/montserrat_bold"
                             android:textColor="#ffffff">
                         </TextView>

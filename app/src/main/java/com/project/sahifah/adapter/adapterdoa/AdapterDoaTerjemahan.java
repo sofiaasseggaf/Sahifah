@@ -29,6 +29,7 @@ public class AdapterDoaTerjemahan extends RecyclerView.Adapter<RecyclerView.View
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.v_doa_tanpalatin, parent, false);
+        context = parent.getContext();
         Penampung penampung = new Penampung(view);
         return penampung;
     }

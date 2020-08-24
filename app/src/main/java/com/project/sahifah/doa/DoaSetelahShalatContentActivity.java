@@ -1,14 +1,19 @@
 package com.project.sahifah.doa;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +23,8 @@ import com.project.sahifah.APIService.APIClient;
 import com.project.sahifah.APIService.APIInterfacesRest;
 import com.project.sahifah.R;
 import com.project.sahifah.adapter.adapterdoa.AdapterDoa;
+import com.project.sahifah.adapter.adapterdoa.AdapterDoaLatin;
+import com.project.sahifah.adapter.adapterdoa.AdapterDoaTerjemahan;
 import com.project.sahifah.model.doa.Detail;
 import com.project.sahifah.model.doa.ModelDoaHarian;
 
@@ -36,13 +43,15 @@ public class DoaSetelahShalatContentActivity extends AppCompatActivity {
 
     TextView txtNamaDoa, txtPenjelasan;
     String namadoa, id_detail;
-    ImageButton btn_back;
+    ImageButton btn_back, btn_setting;
     ImageButton btn_home, btn_hikmah, btn_search, btn_oase, btn_profile;
 
     List<ModelDoaHarian> dataModelDoaHarian = new ArrayList<>();
     List<Detail> listDetail =  new ArrayList<>();
-    AdapterDoa itemList;
+    AdapterDoa itemList; AdapterDoaTerjemahan itemListTerjemahan; AdapterDoaLatin itemListLatin;
     RecyclerView rvDoa;
+
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +63,7 @@ public class DoaSetelahShalatContentActivity extends AppCompatActivity {
         rl = findViewById(R.id.rl);
 
         btn_back = findViewById(R.id.btn_back);
+        btn_setting = findViewById(R.id.btn_setting);
         /*btn_home = findViewById(R.id.btn_home);
         btn_hikmah = findViewById(R.id.btn_hikmah);
         btn_search = findViewById(R.id.btn_search);
@@ -131,6 +141,13 @@ public class DoaSetelahShalatContentActivity extends AppCompatActivity {
                 finish();
             }
         });*/
+
+        btn_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogDoa();
+            }
+        });
     }
 
     private void thread() {
@@ -168,10 +185,7 @@ public class DoaSetelahShalatContentActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             findViewById(R.id.framelayout).setVisibility(View.GONE);
-
-                            itemList = new AdapterDoa(listDetail);
-                            rvDoa.setLayoutManager(new LinearLayoutManager(DoaSetelahShalatContentActivity.this));
-                            rvDoa.setAdapter(itemList);
+                            setDoa();
                         }
                     });
                 }
@@ -184,6 +198,92 @@ public class DoaSetelahShalatContentActivity extends AppCompatActivity {
                 call.cancel();
             }
         });
+    }
+
+    public void dialogDoa(){
+
+        LayoutInflater inflater = getLayoutInflater();
+        View viewDoa = inflater.inflate(R.layout.v_dialog_doa, null);
+
+        Switch sw_latindanterjemah = viewDoa.findViewById(R.id.sw_latindanterjemah);
+        Switch sw_latin = viewDoa.findViewById(R.id.sw_latin);
+        Switch sw_terjemah = viewDoa.findViewById(R.id.sw_terjemah);
+
+        sw_latindanterjemah.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    sw_latin.setChecked(false);
+                    sw_terjemah.setChecked(false);
+                }
+            }
+        });
+
+        sw_latin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    sw_latindanterjemah.setChecked(false);
+                    sw_terjemah.setChecked(false);
+                }
+            }
+        });
+
+        sw_terjemah.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    sw_latindanterjemah.setChecked(false);
+                    sw_latin.setChecked(false);
+                }
+            }
+        });
+
+        AlertDialog.Builder builderdoa = new AlertDialog.Builder(DoaSetelahShalatContentActivity.this);
+        builderdoa.setView(viewDoa)
+                .setTitle("Atur Tampilan Doa")
+                .setPositiveButton("save setting", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (sw_latindanterjemah.isChecked()){
+                            alertDialog.cancel();
+                            setDoa();
+                        } else if (sw_latin.isChecked()){
+                            alertDialog.cancel();
+                            setDoaLatin();
+                        } else if (sw_terjemah.isChecked()){
+                            alertDialog.cancel();
+                            setDoaTerjemah();
+                        }
+                    }
+                })
+                .setNegativeButton("close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        alertDialog = builderdoa.create();
+        alertDialog.show();
+
+    }
+
+    public void setDoa(){
+        itemList = new AdapterDoa(listDetail);
+        rvDoa.setLayoutManager(new LinearLayoutManager(DoaSetelahShalatContentActivity.this));
+        rvDoa.setAdapter(itemList);
+    }
+
+    public void setDoaLatin(){
+        itemListLatin = new AdapterDoaLatin(listDetail);
+        rvDoa.setLayoutManager(new LinearLayoutManager(DoaSetelahShalatContentActivity.this));
+        rvDoa.setAdapter(itemListLatin);
+    }
+
+    public void setDoaTerjemah(){
+        itemListTerjemahan  = new AdapterDoaTerjemahan(listDetail);
+        rvDoa.setLayoutManager(new LinearLayoutManager(DoaSetelahShalatContentActivity.this));
+        rvDoa.setAdapter(itemListTerjemahan);
     }
 
     public void onBackPressed() {

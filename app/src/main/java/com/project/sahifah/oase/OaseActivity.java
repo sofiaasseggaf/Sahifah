@@ -21,10 +21,7 @@ import com.project.sahifah.ProfileActivity;
 import com.project.sahifah.R;
 import com.project.sahifah.adapter.AdapterOase;
 import com.project.sahifah.adapter.AdapterOasee;
-import com.project.sahifah.adapter.AdapterSurah;
 import com.project.sahifah.model.ModelOase;
-import com.project.sahifah.model.ModelQuran;
-import com.project.sahifah.surah.SurahContentActivity;
 
 import java.util.ArrayList;
 import java.util.List;
